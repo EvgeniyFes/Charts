@@ -47,28 +47,40 @@ open class PieChartDataSet: ChartDataSet, IPieChartDataSet
     // MARK: - Styling functions and accessors
 
     private var _sliceSpace = CGFloat(0.0)
+    private var _selectedEntrySliceSpace = CGFloat(0.0)
 
     /// the space in pixels between the pie-slices
     /// **default**: 0
     /// **maximum**: 20
-    open var sliceSpace: CGFloat
-    {
-        get
-        {
+    open var sliceSpace: CGFloat {
+        get {
             return _sliceSpace
         }
-        set
-        {
+        set {
             var space = newValue
-            if space > 20.0
-            {
+            if space > 20.0 {
                 space = 20.0
             }
-            if space < 0.0
-            {
+            if space < 0.0 {
                 space = 0.0
             }
             _sliceSpace = space
+        }
+    }
+
+    open var selectedEntrySliceSpace: CGFloat {
+        get {
+            return _selectedEntrySliceSpace
+        }
+        set {
+            var space = newValue
+            if space > 20.0 {
+                space = 20.0
+            }
+            if space < 0.0 {
+                space = 0.0
+            }
+            _selectedEntrySliceSpace = space
         }
     }
 

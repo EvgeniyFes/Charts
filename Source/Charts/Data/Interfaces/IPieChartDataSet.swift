@@ -25,6 +25,7 @@ public protocol IPieChartDataSet: IChartDataSet
     /// **default**: 0
     /// **maximum**: 20
     var sliceSpace: CGFloat { get set }
+    var selectedEntrySliceSpace: CGFloat { get set }
 
     /// When enabled, slice spacing will be 0.0 when the smallest value is going to be smaller than the slice spacing itself.
     var automaticallyDisableSliceSpacing: Bool { get set }

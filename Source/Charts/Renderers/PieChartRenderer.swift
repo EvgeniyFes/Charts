@@ -748,7 +748,7 @@ open class PieChartRenderer: DataRenderer
                 angle = absoluteAngles[index - 1] * CGFloat(phaseX)
             }
 
-            let sliceSpace = visibleAngleCount <= 1 ? 0.0 : set.sliceSpace
+            let sliceSpace: CGFloat = visibleAngleCount <= 1 ? 0.0 : set.selectedEntrySliceSpace
 
             let sliceAngle = drawAngles[index]
             var innerRadius = userInnerRadius
@@ -756,7 +756,7 @@ open class PieChartRenderer: DataRenderer
             let shift = set.selectionShift
             let highlightedRadius = radius + shift
 
-            let accountForSliceSpacing = sliceSpace > 0.0 && sliceAngle <= 180.0
+            let accountForSliceSpacing = sliceSpace > 0.0 && sliceAngle < 360.0
 
             context.setFillColor(set.highlightColor?.cgColor ?? set.color(atIndex: index).cgColor)
 
